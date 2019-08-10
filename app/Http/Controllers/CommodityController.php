@@ -22,8 +22,8 @@ class CommodityController extends Controller
      */
     public function index()
     {
-        $test = [1,2,3];
-        return view('commodity.index', compact('test'));
+        $commodities = $this->commodityRepository->getAll();
+        return view('commodity.index', compact('commodities'));
     }
 
     /**
