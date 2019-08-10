@@ -11,4 +11,11 @@ class CommodityRepository extends EloquentRepository
     {
         $this->model = $commodity;
     }
+
+    public function saveCommodity($data){
+        $this->model->name = $data['name'];
+        $this->model->price = $data['price'];
+        $saveState = $this->save($this->model);
+        return $saveState;
+    }
 }

@@ -33,7 +33,7 @@ class CommodityController extends Controller
      */
     public function create()
     {
-        //
+        return view('commodity.create');
     }
 
     /**
@@ -44,7 +44,13 @@ class CommodityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $saveState = $this->commodityRepository->saveCommodity($request->all());
+        if ($saveState){
+            return redirect()->action('CommodityController@index')->with("message", "新增成功");
+        }else{
+            return redirect()->action('CommodityController@index')->with("message", "新增失敗");
+        }
+        
     }
 
     /**
