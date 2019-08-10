@@ -41,4 +41,8 @@ class LoginController extends Controller
     {
         return 'name';
     }
+
+    // public function login(){
+    //     dd(123);
+    // }
 }
